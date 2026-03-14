@@ -21,7 +21,7 @@ permissions:
 
 env:
   REPO_URL: https://github.com/VIKINGYFY/immortalwrt.git
-  REPO_BRANCH: master
+  REPO_BRANCH: main
   FEEDS_CONF: feeds.conf.default
   CONFIG_FILE: ./config/zn-m2.config
   # DIY_P1_SH: ./scripts/zn-m2/diy-part1.sh
