@@ -94,6 +94,8 @@ jobs:
         sed -i 's/kmod-fs-ext4//' target/linux/qualcommax/Makefile
         sed -i 's/kmod-fs-f2fs//' target/linux/qualcommax/Makefile
         sed -i 's/emmc//' target/linux/qualcommax/Makefile
+        rm -rfv package/network/services/hostapd/patches/900-hostapd-update-muedca-params.patch
+        rm -rfv package/network/services/hostapd/patches/901-fix-SME-Authentication-request-to-the-driver-failed.patch
 
     - name: Load custom configuration
       run: |
