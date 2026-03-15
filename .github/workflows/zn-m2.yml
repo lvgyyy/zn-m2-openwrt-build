@@ -96,6 +96,7 @@ jobs:
         sed -i 's/emmc//' target/linux/qualcommax/Makefile
         sed -i 's/e2fsprogs//' target/linux/qualcommax/Makefile
         sed -i 's/f2fs-tools//' target/linux/qualcommax/Makefile
+        sed -i '/dnsmasq-full/d' include/target.mk
         rm -rfv package/network/services/hostapd/patches/900-hostapd-update-muedca-params.patch
         rm -rfv package/network/services/hostapd/patches/901-fix-SME-Authentication-request-to-the-driver-failed.patch
 
