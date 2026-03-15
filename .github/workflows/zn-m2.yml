@@ -81,6 +81,7 @@ jobs:
 
     - name: Strip wifi&usb
       run: |
+        cd openwrt
         sed -i '/ipq-wifi-zn_m2/d' target/linux/qualcommax/image/ipq60xx.mk
         sed -i 's/ath11k-firmware-ipq6018//' target/linux/qualcommax/ipq60xx/target.mk
         sed -i 's/automount//' target/linux/qualcommax/Makefile
