@@ -79,10 +79,26 @@ jobs:
     - name: Install feeds
       run: cd openwrt && ./scripts/feeds install -a
 
+    - name: Strip wifi&usb
+      run: |
+        sed -i '/ipq-wifi-zn_m2/d' target/linux/qualcommax/image/ipq60xx.mk
+        sed -i 's/ath11k-firmware-ipq6018//' target/linux/qualcommax/ipq60xx/target.mk
+        sed -i 's/automount//' target/linux/qualcommax/Makefile
+        sed -i 's/kmod-ath11k//' target/linux/qualcommax/Makefile
+        sed -i 's/kmod-ath11k-ahb//' target/linux/qualcommax/Makefile
+        sed -i 's/kmod-ath11k-pci//' target/linux/qualcommax/Makefile
+        sed -i 's/kmod-usb3//' target/linux/qualcommax/Makefile
+        sed -i 's/kmod-usb-dwc3//' target/linux/qualcommax/Makefile
+        sed -i 's/kmod-usb-dwc3-qcom//' target/linux/qualcommax/Makefile
+        sed -i 's/kmod-fs-ext4//' target/linux/qualcommax/Makefile
+        sed -i 's/kmod-fs-f2fs//' target/linux/qualcommax/Makefile
+        sed -i 's/emmc//' target/linux/qualcommax/Makefile
+
     - name: Load custom configuration
       run: |
         set -x
         [ -e $CONFIG_FILE ] && mv $CONFIG_FILE openwrt/.config
+        make defconfig
 
     - name: Download package
       id: package
