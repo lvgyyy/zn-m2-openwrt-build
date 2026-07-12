@@ -77,7 +77,10 @@ jobs:
         ./scripts/feeds update -a
 
     - name: Install feeds
-      run: cd openwrt && ./scripts/feeds install -a -p adguardhome
+      run: |
+        cd openwrt
+        ./scripts/feeds install -a
+        ./scripts/feeds install -a -p adguardhome
 
     - name: Strip wifi&usb
       run: |
