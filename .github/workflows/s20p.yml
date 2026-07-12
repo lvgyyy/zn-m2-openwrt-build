@@ -142,7 +142,7 @@ jobs:
       id: tag
       if: env.UPLOAD_RELEASE == 'true'
       run: |
-        echo "release_tag=v$(date +"%Y.%m.%d.%H%M")/s20p/basic" >> $GITHUB_OUTPUT
+        echo "release_tag=v$(date +"%Y.%m.%d.%H%M")/zn-m2/basic" >> $GITHUB_OUTPUT
         touch release.txt
         echo "S20P firmware" >> release.txt
         echo "status=success" >> $GITHUB_OUTPUT
