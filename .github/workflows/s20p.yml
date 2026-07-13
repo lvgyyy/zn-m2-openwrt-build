@@ -94,6 +94,7 @@ jobs:
         set -x
         [ -e $CONFIG_FILE ] && cp -fv $CONFIG_FILE openwrt/.config
         cd openwrt
+        cp -fv defconfig/mt7986-nowifi.config .config
         make defconfig
         cat .config | grep -v -E '^#|^$'
 
