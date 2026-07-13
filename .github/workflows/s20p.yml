@@ -95,6 +95,15 @@ jobs:
         [ -e $CONFIG_FILE ] && cp -fv $CONFIG_FILE openwrt/.config
         cd openwrt
         cp -fv defconfig/mt7986-nowifi.config .config
+        sed -i 's/s20m/s20p/g' .config
+        sed -i '/CONFIG_PACKAGE_nano/d' .config
+        sed -i '/CONFIG_PACKAGE_openssh-sftp-server/d' .config
+        sed -i '/CONFIG_PACKAGE_luci-app-wrtbwmon/d' .config
+        sed -i '/CONFIG_PACKAGE_libpcap/d' .config
+        sed -i '/CONFIG_PACKAGE_tcpdump/d' .config
+        echo "CONFIG_PACKAGE_luci-app-adguardhome=y" >> .config
+        echo "CONFIG_PACKAGE_luci-theme-argon=y" >> .config
+        echo "CONFIG_PACKAGE_luci-i18n-adguardhome-zh-cn=y" >> .config
         make defconfig
         cat .config | grep -v -E '^#|^$'
 
@@ -146,7 +155,7 @@ jobs:
       id: tag
       if: env.UPLOAD_RELEASE == 'true'
       run: |
-        echo "release_tag=v$(date +"%Y.%m.%d.%H%M")/zn-m2/basic" >> $GITHUB_OUTPUT
+        echo "release_tag=v$(date +"%Y.%m.%d.%H%M")/s20p/basic" >> $GITHUB_OUTPUT
         touch release.txt
         echo "S20P firmware" >> release.txt
         echo "status=success" >> $GITHUB_OUTPUT
