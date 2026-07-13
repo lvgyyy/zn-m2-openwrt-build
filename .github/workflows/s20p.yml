@@ -108,6 +108,7 @@ jobs:
         sed -i '/CONFIG_PACKAGE_luci-app-wrtbwmon/d' .config
         sed -i '/CONFIG_PACKAGE_libpcap/d' .config
         sed -i '/CONFIG_PACKAGE_tcpdump/d' .config
+        sed -i '/eqos-mtk/d' .config
         echo "CONFIG_PACKAGE_luci-app-adguardhome=y" >> .config
         echo "CONFIG_PACKAGE_luci-theme-argon=y" >> .config
         echo "CONFIG_PACKAGE_luci-i18n-adguardhome-zh-cn=y" >> .config
