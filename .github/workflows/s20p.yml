@@ -80,7 +80,9 @@ jobs:
     - name: Update feeds
       run: |
         cd openwrt
-        echo 'src-git adguardhome https://github.com/stevenjoezhang/luci-app-adguardhome.git;dev' >> feeds.conf.default
+        cd package
+        git clone https://github.com/stevenjoezhang/luci-app-adguardhome.git -b dev
+        cd ..
         ./scripts/feeds update -a
 
     - name: Install feeds
