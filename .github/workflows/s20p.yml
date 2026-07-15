@@ -114,7 +114,8 @@ jobs:
         echo "CONFIG_PACKAGE_luci-app-adguardhome=y" >> .config
         echo "CONFIG_PACKAGE_luci-theme-argon=y" >> .config
         echo "CONFIG_PACKAGE_luci-i18n-adguardhome-zh-cn=y" >> .config
-        echo "CONFIG_PACKAGE_luci-theme-argon-config=y" >> .config
+        echo "CONFIG_PACKAGE_luci-app-argon-config=y" >> .config
+        echo "CONFIG_PACKAGE_luci-i18n-argon-config-zh-cn=y" >> .config
         make defconfig
         cat .config | grep -v -E '^#|^$'
 
