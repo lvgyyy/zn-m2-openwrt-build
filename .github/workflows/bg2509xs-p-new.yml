@@ -103,6 +103,8 @@ jobs:
         echo "CONFIG_PACKAGE_luci-i18n-turboacc-mtk-zh-cn=y" >> .config
         echo "CONFIG_PACKAGE_luci-app-upnp=y" >> .config
         echo "CONFIG_PACKAGE_luci-i18n-upnp-zh-cn=y" >> .config
+        echo "CONFIG_EMMC_SUPPORT=y" >> .config
+        echo "CONFIG_PACKAGE_mmc-utils=y" >> .config
         make defconfig
         cat .config | grep -v -E '^#|^$'
 
