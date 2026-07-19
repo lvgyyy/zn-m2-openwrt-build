@@ -96,6 +96,13 @@ jobs:
         set -x
         [ -e $CONFIG_FILE ] && cp -fv $CONFIG_FILE openwrt/.config
         cd openwrt
+        echo "CONFIG_PACKAGE_luci-theme-argon=y" >> .config
+        echo "CONFIG_PACKAGE_luci-app-argon-config=y" >> .config
+        echo "CONFIG_PACKAGE_luci-i18n-argon-config-zh-cn=y" >> .config
+        echo "CONFIG_PACKAGE_luci-app-turboacc-mtk=y" >> .config
+        echo "CONFIG_PACKAGE_luci-i18n-turboacc-mtk-zh-cn=y" >> .config
+        echo "CONFIG_PACKAGE_luci-app-upnp=y" >> .config
+        echo "CONFIG_PACKAGE_luci-i18n-upnp-zh-cn=y" >> .config
         make defconfig
         cat .config | grep -v -E '^#|^$'
 
