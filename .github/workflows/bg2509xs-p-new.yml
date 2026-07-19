@@ -79,6 +79,9 @@ jobs:
     - name: Update feeds
       run: |
         cd openwrt
+        cd package
+        git clone https://github.com/stevenjoezhang/luci-app-adguardhome.git -b dev
+        cd ..
         ./scripts/feeds update -a
 
     - name: Install feeds
@@ -105,6 +108,10 @@ jobs:
         echo "CONFIG_PACKAGE_luci-i18n-upnp-zh-cn=y" >> .config
         echo "CONFIG_EMMC_SUPPORT=y" >> .config
         echo "CONFIG_PACKAGE_mmc-utils=y" >> .config
+        echo "CONFIG_PACKAGE_luci-app-adguardhome=y" >> .config
+        echo "CONFIG_PACKAGE_luci-i18n-adguardhome-zh-cn=y" >> .config
+        sed -i '/CONFIG_GDB/d' .config
+        sed -i '/CONFIG_KERNEL_SWAP/d' .config
         make defconfig
         cat .config | grep -v -E '^#|^$'
 
