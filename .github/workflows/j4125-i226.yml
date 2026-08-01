@@ -112,6 +112,7 @@ jobs:
         sed -i 's/kmod-usb-net-rtl8150 //g' target/linux/x86/Makefile
         sed -i 's/kmod-usb-net-rtl8152-vendor //g' target/linux/x86/Makefile
         sed -i 's/i915-firmware-dmc //g' target/linux/x86/Makefile
+        sed -i 's/automount//g' target/linux/x86/Makefile
         sed -i 's/kmod-amazon-ena //g' target/linux/x86/image/64.mk
         sed -i 's/kmod-amd-xgbe //g' target/linux/x86/image/64.mk
         sed -i 's/kmod-bnx2 //g' target/linux/x86/image/64.mk
@@ -165,7 +166,7 @@ jobs:
       uses: actions/upload-artifact@main
       if: steps.organize.outputs.status == 'success' && !cancelled()
       with:
-        name: mt7986a${{ env.FILE_DATE }}
+        name: j4125-i226${{ env.FILE_DATE }}
         path: ${{ env.FIRMWARE }}
 
     - name: Generate release tag
@@ -187,6 +188,7 @@ jobs:
         tag_name: ${{ steps.tag.outputs.release_tag }}
         body_path: release.txt
         files: |
+         ${{ env.FIRMWARE }}/*.gz
          ${{ env.FIRMWARE }}/*.ubi
          ${{ env.FIRMWARE }}/*.bin
          ${{ env.FIRMWARE }}/*.manifest
