@@ -91,7 +91,6 @@ jobs:
         set -x
         [ -e $CONFIG_FILE ] && cp -fv $CONFIG_FILE openwrt/.config
         cd openwrt
-        make defconfig
         cat .config | grep -v -E '^#|^$'
 
     - name: Download package
