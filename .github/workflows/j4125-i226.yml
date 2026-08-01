@@ -91,6 +91,36 @@ jobs:
         set -x
         [ -e $CONFIG_FILE ] && cp -fv $CONFIG_FILE openwrt/.config
         cd openwrt
+        sed -i 's/kmod-e1000e //g' target/linux/x86/Makefile
+        sed -i 's/kmod-i40e //g' target/linux/x86/Makefile
+        sed -i 's/kmod-igb //g' target/linux/x86/Makefile
+        sed -i 's/kmod-igbvf //g' target/linux/x86/Makefile
+        sed -i 's/kmod-ixgbe //g' target/linux/x86/Makefile
+        sed -i 's/kmod-ixgbevf //g' target/linux/x86/Makefile
+        sed -i 's/kmod-pcnet32 //g' target/linux/x86/Makefile
+        sed -i 's/kmod-tulip //g' target/linux/x86/Makefile
+        sed -i 's/kmod-vmxnet3 //g' target/linux/x86/Makefile
+        sed -i 's/kmod-r8101 //g' target/linux/x86/Makefile
+        sed -i 's/kmod-r8125 //g' target/linux/x86/Makefile
+        sed -i 's/kmod-r8126 //g' target/linux/x86/Makefile
+        sed -i 's/kmod-r8168 //g' target/linux/x86/Makefile
+        sed -i 's/kmod-8139cp //g' target/linux/x86/Makefile
+        sed -i 's/kmod-8139too //g' target/linux/x86/Makefile
+        sed -i 's/kmod-usb-net //g' target/linux/x86/Makefile
+        sed -i 's/kmod-usb-net-asix //g' target/linux/x86/Makefile
+        sed -i 's/kmod-usb-net-asix-ax88179 //g' target/linux/x86/Makefile
+        sed -i 's/kmod-usb-net-rtl8150 //g' target/linux/x86/Makefile
+        sed -i 's/kmod-usb-net-rtl8152-vendor //g' target/linux/x86/Makefile
+        sed -i 's/i915-firmware-dmc //g' target/linux/x86/Makefile
+        sed -i 's/kmod-amazon-ena //g' target/linux/x86/image/64.mk
+        sed -i 's/kmod-amd-xgbe //g' target/linux/x86/image/64.mk
+        sed -i 's/kmod-bnx2 //g' target/linux/x86/image/64.mk
+        sed -i 's/kmod-e1000 //g' target/linux/x86/image/64.mk
+        sed -i 's/kmod-dwmac-intel //g' target/linux/x86/image/64.mk
+        sed -i 's/kmod-drm-i915//g' target/linux/x86/image/64.mk
+        sed -i 's/kmod-tg3 //g' target/linux/x86/image/64.mk
+        sed -i 's/kmod-forcedeth //g' target/linux/x86/image/64.mk
+        sed -i 's/dnsmasq-full//g' include/target.mk
         cat .config | grep -v -E '^#|^$'
 
     - name: Download package
