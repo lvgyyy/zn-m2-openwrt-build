@@ -121,6 +121,7 @@ jobs:
         sed -i 's/kmod-tg3 //g' target/linux/x86/image/64.mk
         sed -i 's/kmod-forcedeth //g' target/linux/x86/image/64.mk
         sed -i 's/dnsmasq-full//g' include/target.mk
+        make defconfig
         cat .config | grep -v -E '^#|^$'
 
     - name: Download package
