@@ -108,6 +108,8 @@ jobs:
         cd openwrt
         curl -sSL https://raw.githubusercontent.com/mufeng05/openwrt-sonic-fullcone/master/add_sonic_fullcone.sh | bash
         sed -i '4,7d' target/linux/x86/image/64.mk
+        sed -i '21a\PKG_FIXUP:=autoreconf' package/libs/libnftnl/Makefile
+        cat package/libs/libnftnl/Makefile
         make defconfig
         cat .config | grep -v -E '^#|^$'
 
