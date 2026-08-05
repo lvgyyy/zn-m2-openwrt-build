@@ -68,7 +68,7 @@ jobs:
         python3-pyelftools qemu-utils re2c rsync scons squashfs-tools subversion swig texinfo uglifyjs \
         upx-ucl unzip vim wget xmlto xxd zlib1g-dev zstd
         sudo apt install -y rename pigz libfuse-dev upx subversion clang lua5.1 liblua5.1-0-dev
-        sudo apt install bzip2 g++ gawk gcc git glibc-source libncurses-dev make
+        sudo apt install -y bzip2 g++ gawk gcc git glibc-source libncurses-dev make
         sudo apt autoremove -y --purge
         sudo apt clean
         sudo rm -rf po2lmo
