@@ -94,7 +94,7 @@ jobs:
         set -x
         [ -e $CONFIG_FILE ] && cp -fv $CONFIG_FILE openwrt/.config
         cd openwrt
-        makecurl -sSL https://raw.githubusercontent.com/mufeng05/openwrt-sonic-fullcone/master/add_sonic_fullcone.sh | bash
+        curl -sSL https://raw.githubusercontent.com/mufeng05/openwrt-sonic-fullcone/master/add_sonic_fullcone.sh | bash
         make defconfig
         cat .config | grep -v -E '^#|^$'
 
