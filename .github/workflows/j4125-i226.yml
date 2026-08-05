@@ -21,7 +21,7 @@ permissions:
 
 env:
   REPO_URL: https://github.com/openwrt/openwrt.git
-  REPO_BRANCH: v25.12.5
+  REPO_BRANCH: master
   CONFIG_FILE: ./config/j4125-i226.config
   UPLOAD_BIN_DIR: false
   UPLOAD_RELEASE: true
@@ -79,7 +79,7 @@ jobs:
         sudo mkdir -p /workdir
         sudo chown $USER:$GROUPS /workdir
         whereis automake
-        sudo ln -sf /usr/bin/automake /usr/bin/automake-1.17
+        automake --version
     
     - name: Clone source code
       working-directory: /workdir
