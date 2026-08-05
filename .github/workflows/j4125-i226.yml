@@ -79,6 +79,7 @@ jobs:
         sudo mkdir -p /workdir
         sudo chown $USER:$GROUPS /workdir
         whereis automake
+        sudo ln -sf /usr/bin/automake /usr/bin/automake-1.17
     
     - name: Clone source code
       working-directory: /workdir
