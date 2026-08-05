@@ -21,7 +21,7 @@ permissions:
 
 env:
   REPO_URL: https://github.com/openwrt/openwrt.git
-  REPO_BRANCH: master
+  REPO_BRANCH: v25.12.5
   CONFIG_FILE: ./config/j4125-i226.config
   UPLOAD_BIN_DIR: false
   UPLOAD_RELEASE: true
