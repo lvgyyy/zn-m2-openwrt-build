@@ -112,11 +112,7 @@ jobs:
         cat package/libs/libnftnl/Makefile
         make defconfig
         cat .config | grep -v -E '^#|^$'
-        make package/libs/libnftnl/clean V=s
-        make package/libs/libnftnl/prepare V=s
-        make package/libs/libnftnl/compile V=s
-        make package/libs/libnftnl/clean V=s
-
+        
     - name: Download package
       id: package
       run: |
@@ -129,6 +125,10 @@ jobs:
       id: compile
       run: |
         cd openwrt
+        make package/libs/libnftnl/clean V=s
+        make package/libs/libnftnl/prepare V=s
+        make package/libs/libnftnl/compile V=s
+        make package/libs/libnftnl/clean V=s
         echo -e "$(nproc) thread compile"
         make -j$(nproc) || make -j1 || make -j1 V=s
         echo "status=success" >> $GITHUB_OUTPUT
