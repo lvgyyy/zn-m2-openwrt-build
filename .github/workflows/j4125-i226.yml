@@ -78,6 +78,7 @@ jobs:
         git config --global init.defaultBranch master
         sudo mkdir -p /workdir
         sudo chown $USER:$GROUPS /workdir
+        whereis automake
     
     - name: Clone source code
       working-directory: /workdir
